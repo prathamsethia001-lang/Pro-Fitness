@@ -1,0 +1,333 @@
+/* =========================================
+   1. GLOBAL RESET & BRAND VARIABLES
+   ========================================= */
+:root {
+    /* PRO FITNESS BRAND COLORS */
+    --brand-blue: #53A6FA;      /* From muscle silhouette */
+    --brand-red: #D73A27;       /* From "PRO" text */
+    --brand-red-hover: #b02e1f;
+    
+    /* BACKGROUNDS */
+    --bg-dark: #0f0f0f;
+    --bg-darker: #050505;
+    
+    /* TEXT */
+    --text-light: #f4f4f4;
+    --text-muted: #aaaaaa;
+    
+    /* FONTS */
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+
+    /* COMPATIBILITY ALIASES (Keeps old HTML working) */
+    --kratos-green: var(--brand-blue); 
+    --kratos-green-hover: #4295e8;
+    --kratos-gold: var(--brand-red); 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevents side-scrolling */
+    width: 100%;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Accent for spans inside headings */
+span {
+    color: var(--brand-blue);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-light);
+    transition: 0.3s ease;
+}
+
+img, iframe, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =========================================
+   2. LAYOUT UTILITIES
+   ========================================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.text-center { text-align: center; }
+.mt-2 { margin-top: 40px; }
+.dark-bg { background-color: var(--bg-darker); }
+
+/* =========================================
+   3. NAVIGATION (Clean Header)
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(15, 15, 15, 0.98);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: none; /* Red line removed as requested */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.nav-logo {
+    height: 60px; 
+    width: auto;
+    transition: 0.3s ease;
+}
+
+.nav-logo:hover {
+    transform: scale(1.05); 
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--brand-blue);
+}
+
+.btn-nav {
+    border: 2px solid var(--brand-blue);
+    padding: 8px 18px;
+    color: var(--brand-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+.btn-nav:hover {
+    background: var(--brand-blue);
+    color: #000;
+}
+
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
+#hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+    color: var(--brand-red); /* "THE FITNESS CLUB" or "PRO" highlight */
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+.btn-primary {
+    background: var(--brand-red);
+    color: #fff;
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(215, 58, 39, 0.4);
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: var(--brand-red-hover);
+    box-shadow: 0 6px 20px rgba(215, 58, 39, 0.6);
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   5. SECTIONS (About, Services, Contact)
+   ========================================= */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--brand-blue);
+    padding-left: 15px;
+}
+
+.team-img, .about-image video {
+    width: 100%; 
+    border-radius: 5px;   
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+    border-bottom: 4px solid var(--brand-blue);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 45px 25px;
+    text-align: center;
+    border-top: 3px solid transparent;
+}
+
+.service-card:hover {
+    background: #1a1a1a;
+    border-top: 3px solid var(--brand-red);
+    transform: translateY(-10px);
+}
+
+.contact-form-container {
+    background: #111;
+    padding: 40px;
+    border-top: 4px solid var(--brand-blue);
+}
+
+.booking-form input, .booking-form select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+.booking-form input:focus {
+    border-color: var(--brand-blue);
+    outline: none;
+}
+
+/* =========================================
+   6. TICKER & FOOTER
+   ======================================== */
+.scrolling-ticker {
+    background-color: var(--brand-blue); 
+    padding: 15px 0;
+    display: flex; 
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker-content {
+    display: flex;
+    flex-shrink: 0; 
+    min-width: 100%;
+    animation: scrollTicker 20s linear infinite; 
+}
+
+.ticker-content span {
+    margin: 0 40px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #000;
+}
+
+@keyframes scrollTicker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+footer {
+    background: var(--bg-dark);
+    border-top: 1px solid #222;
+    padding: 60px 0 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 25px;
+    background: #050505;
+    margin-top: 40px;
+}
+
+/* =========================================
+   7. ULTRA-STRICT MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .nav-logo { height: 45px; }
+
+    .nav-links { gap: 15px; }
+
+    .hero-content h1 { font-size: 2.8rem; }
+
+    .about-grid {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text h2 {
+        border-left: none;
+        border-bottom: 4px solid var(--brand-blue);
+        display: inline-block;
+        padding: 0 0 10px 0;
+    }
+
+    .btn-primary { width: 100%; }
+    
+    .scrolling-ticker { margin-top: 105px !important; }
+}
