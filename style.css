@@ -135,6 +135,10 @@ img, iframe, video {
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 2px;
+    /* Moved from HTML to CSS so mobile can hide it */
+    display: flex; 
+    align-items: center; 
+    gap: 5px;
 }
 
 .btn-nav:hover {
